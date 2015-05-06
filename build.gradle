@@ -9,13 +9,17 @@ repositories {
 	mavenCentral()
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
 
 buildscript {
         repositories {
                 jcenter()
         }
         dependencies {
-		// Embedded Jetty 9 Gradle Plugin
+    // Embedded Jetty 9 Gradle Plugin
                 classpath (group: 'com.sahlbach.gradle', name: 'gradle-jetty-eclipse-plugin', version: '1.9.+')
         }
 }
@@ -23,16 +27,16 @@ apply plugin: 'jettyEclipse'
 apply plugin: 'war'
 
 dependencies {
-	// JAX-RS 2.0(.1)
+  // JAX-RS 2.0(.1)
         compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
 
-	// Jersey 2.15
+  // Jersey 2.15
         compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.15'
 
-	// Moxy is used to bind JAXB to JSON
-	compile 'org.glassfish.jersey.media:jersey-media-moxy:2.15'
+  // Moxy is used to bind JAXB to JSON
+  compile 'org.glassfish.jersey.media:jersey-media-moxy:2.15'
 
-	// Servlet 3
+  // Servlet 3
         compile 'javax.servlet:javax.servlet-api:3.1.0'
 }
 
